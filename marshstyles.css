@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    color: #122c03;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+p {
+  font-size: 22px;
+  padding: .5em;
+}
+
+.main-header {
+  background-image: url('IMGs/MarshHeader.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-nav {
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgb(252, 252, 252);
+  padding: 10px 15px;
+  font-size: 50px;
+  background-color: rgb(20, 54, 16);
+}
+
+.nav-links a:hover {
+  background-color: #00000069;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  background-color: #ced8cd;
+}
+
+h1 {
+  text-align: center;
+}
+
+.content-section {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.content-section img {
+  width: 300;
+  flex-shrink: 0;
+  display: block;
+  padding: 1.5em;
+}
+
+.text-content {
+  flex: 1;
+  padding: 1.5em;
+}
+
+section ul {
+  display: block;
+  font-size: 22px;
+}
+
+img {
+  display: block;
+  width: 300px;
+  margin-bottom: 20px;
+}

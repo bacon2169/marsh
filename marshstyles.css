@@ -4,9 +4,24 @@
   color: #122c03;
 }
 
-html, body {
+/* Prevent horizontal overflow */
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+  color: #122c03;
 }
 
 p {
@@ -24,10 +39,24 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .main-nav {
   text-align: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .left-image, .right-image {
@@ -42,6 +71,8 @@ p {
   gap: 25px;
   margin: 0;
   padding: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-links a {
@@ -61,6 +92,11 @@ p {
 .container {
   display: flex;
   gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .column {
@@ -68,6 +104,8 @@ p {
   min-width: 280px;
   padding: 20px;
   background-color: #ced8cd;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 h1 {
@@ -78,18 +116,26 @@ h1 {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .content-section img {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   flex-shrink: 0;
   display: block;
   padding: 1.5em;
+  box-sizing: border-box;
 }
 
 .text-content {
   flex: 1;
   padding: 1.5em;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 section ul {
@@ -97,54 +143,58 @@ section ul {
   font-size: 22px;
 }
 
-img {
-  display: block;
-  width: 300px;
-  margin-bottom: 20px;
-}
-
 /* Mobile responsive styles */
 @media (max-width: 768px) {
+  .main-header {
+    height: 200px;
+    background-position: center center;
+  }
+  
   .container {
     flex-direction: column;
+    padding: 0;
+    gap: 0;
   }
   
   .column {
     width: 100%;
-    margin-bottom: 2rem;
+    min-width: unset;
+    margin-bottom: 0;
   }
   
   .nav-links {
     flex-direction: column;
     text-align: center;
+    gap: 0;
   }
   
   .nav-links li {
-    margin: 0.5rem 0;
+    margin: 0;
+    width: 100%;
   }
   
   .nav-links a {
     font-size: 32px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .content-section {
     flex-direction: column;
     align-items: center;
+    padding: 0;
+    gap: 0;
   }
   
-  .content-section img,
-  img {
+  .content-section img {
     width: 100%;
     max-width: 300px;
-    height: auto;
+    padding: 1em;
   }
   
   .text-content {
     padding: 1em;
-  }
-  
-  .main-header {
-    height: 200px;
+    width: 100%;
   }
   
   p {

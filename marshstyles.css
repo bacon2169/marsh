@@ -31,7 +31,7 @@ p {
 }
 
 .main-header {
-  background-image: url('IMGs/MarshHeader.jpg');
+  background-image: url('img/MarshHeader.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -147,7 +147,6 @@ section ul {
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .main-header {
-    background-image: url('IMGs/MarshHeader.jpg');
     height: 200px;
     background-position: center;
   }

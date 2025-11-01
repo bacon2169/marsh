@@ -73,6 +73,7 @@ img {
   padding: 0;
   width: 100%;
   box-sizing: border-box;
+  justify-content: center;
 }
 
 .nav-links a {
@@ -147,7 +148,7 @@ section ul {
 @media (max-width: 768px) {
   .main-header {
     height: 200px;
-    background-position: center center;
+    background-position: center;
   }
   
   .container {

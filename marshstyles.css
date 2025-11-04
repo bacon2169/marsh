@@ -138,6 +138,60 @@ section ul {
   font-size: 22px;
 }
 
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: slideshow 16s infinite;
+}
+
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.slide:nth-child(3) {
+  animation-delay: 8s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide:nth-child(3) img {
+  object-fit: cover;
+  object-position: 63% center;
+}
+
+.slide:nth-child(4) {
+  animation-delay: 12s;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes slideshow {
+  0% {opacity: 0;}
+  8% {opacity: 1;}
+  33% {opacity: 1;}
+  41% {opacity: 0;}
+  100% {opacity: 0;}
+
+}
+
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .main-header {

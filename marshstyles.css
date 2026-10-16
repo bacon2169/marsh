@@ -138,6 +138,7 @@ section ul {
   font-size: 22px;
 }
 
+/* Slideshow Frame */
 .slideshow {
   position: relative;
   width: 100%;
@@ -146,6 +147,42 @@ section ul {
   background-color: rgb(255, 255, 255);
 }
 
+/* ==========================================================================
+   6. SLIDESHOW VARIATIONS (Sizing & Timings per layout type)
+   ========================================================================== */
+.fix-crop img {
+  object-position: center top; /* Pulls the image down so the top is visible */
+}
+
+/* OR use percentages for perfect precision: */
+.fix-crop img {
+  object-position: center 25%; /* Lower number shifts up, higher number shifts down */
+}
+
+
+/* VARIATION B: Standalone Gallery Page Styles (Dynamic loop based on your count) */
+.gallery-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;  /* Centers the slideshow perfectly horizontally */
+  padding: 60px 20px;       /* Adds deep spacing below the header */
+}
+
+.gallery-wrapper {
+  width: 50%;               /* Forces it to take up EXACTLY half the page layout width */
+  min-width: 320px;         /* Prevents it from breaking on narrow viewports */
+  max-width: 750px;         /* Keeps it from getting obnoxiously large on massive displays */
+}
+
+.gallery-slideshow {
+  width: 100%;
+  height: 500px;            /* Gives it a grander, more cinematic height */
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12); /* Subtle shadow so it pops off the page background */
+}
+
+
+/* Universal Slide settings */
 .slide {
   position: absolute;
   top: 0;
@@ -153,45 +190,40 @@ section ul {
   width: 100%;
   height: 100%;
   opacity: 0;
-  animation: slideshow 20s infinite;
-}
-
-.slide:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.slide:nth-child(2) {
-  animation-delay: 4s;
-}
-
-.slide:nth-child(3) {
-  animation-delay: 8s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide:nth-child(3) img {
-  object-fit: cover;
-  object-position: 63% center;
-}
-
-.slide:nth-child(4) {
-  animation-delay: 12s;
-}
-
-.slide:nth-child(5) {
-  animation-delay: 16s;
-}
-
-.slide:nth-child(4) img {
-  object-fit: contain;
+  animation: uniformSlideshow 12s infinite;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 6px;
+}
+
+/* 3-Image Delays (4s intervals over a 12s loop) */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+
+/* Smooth fade calculations for 3 items */
+@keyframes uniformSlideshow {
+  0% { opacity: 0; }
+  6% { opacity: 1; }    /* Fades in over ~0.7 seconds */
+  33% { opacity: 1; }   /* Stays visible until the 4th second */
+  39% { opacity: 0; }   /* Fades out as the next one comes in */
+  100% { opacity: 0; }
+}
+
+/* Custom positioning tweaks from your original code */
+.slide:nth-child(3) img {
+  object-position: 63% center;
+}
+
+/* Mobile responsive layout shift */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column;
+  }
 }
 
 @keyframes slideshow {
@@ -202,6 +234,49 @@ section ul {
   100% {opacity: 0;}
 
 }
+
+/* Container sizing */
+.gallery-wrapper {
+    position: relative;
+    max-width: 800px; /* Adjust to fit your layout */
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Hide all slides by default */
+/* Container sizing (ensure a consistent frame height) */
+.gallery-wrapper {
+    position: relative;
+    max-width: 800px; 
+    height: 500px; /* 1. Force a consistent height so layout doesn't jump */
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Hide all slides by default and prepare fade effect */
+.slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out; /* 3. Creates a smooth cross-fade transition */
+}
+
+/* Display the active slide and trigger fade */
+.slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* If you prefer to see the whole image with black bars on the sides instead of cropping */
+.slide.fix-crop img,
+.slide.fix-height img {
+    object-fit: contain; 
+}
+
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {

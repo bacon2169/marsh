@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gallery | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="marshstyles.css"/>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="people.Html">People</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main structural section for the standalone page -->
+    <section class="gallery-container">
+        <div class="gallery-wrapper">
+
+            <!-- The slideshow frame with your images -->
+            <div class="slideshow gallery-slideshow">
+                <div class="slide"><img src="IMGs/v1.jpg" alt="slide 1"></div>
+                <div class="slide"><img src="IMGs/puppies.jpg" alt="slide 2"></div>
+                <div class="slide"><img src="IMGs/v2.jpg" alt="slide 3"></div>
+                <div class="slide"><img src="IMGs/puppies2.jpg" alt="slide 4"></div>
+                <div class="slide"><img src="IMGs/v3.jpg" alt="slide 5"></div>
+                <div class="slide"><img src="IMGs/puppies3.jpg" alt="slide 6"></div>
+                <div class="slide fix-height"><img src="IMGs/v4.jpg" alt="slide 7"></div>
+                <div class="slide"><img src="IMGs/dusk.jpg" alt="slide 8"></div>
+                <div class="slide fix-height"><img src="IMGs/v5.jpg" alt="slide 9"></div>
+                <div class="slide fix-crop"><img src="IMGs/Cheescake_pfp.jpg" alt="slide 10"></div>
+                <div class="slide fix-height"><img src="IMGs/Muffin_pfp.jpg" alt="slide 11"></div>
+                <div class="slide fix-height"><img src="IMGs/crab.jpg" alt="slide 12"></div>
+                <div class="slide"> <img src="IMGs/fish.jpg" alt="slide 13"></div>
+                <div class="slide fix-height"><img src="IMGs/scaryfish.jpg" alt="slide 14"></div>
+                <div class="slide"><img src="IMGs/netpull.jpg" alt="slide 15"></div>
+                <div class="slide"><img src="IMGs/netpull2.jpg" alt="slide 16"></div>
+                <div class="slide"><img src="IMGs/catfish.jpg" alt="slide 17"></div>
+                <div class="slide"><img src="IMGs/underwater.jpg" alt="slide 18"></div>
+                <div class="slide fix-crop"><img src="IMGs/longfish.jpg" alt="slide 19"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slideshow JavaScript Logic -->
+    <script>
+        let currentSlideIndex = 0;
+        let slideInterval; 
+        const slides = document.querySelectorAll('.slide');
+        const displayDuration = 4000; // 4 seconds per slide
+
+        function initSlideshow() {
+            if (slides.length > 0) {
+                slides[currentSlideIndex].classList.add('active');
+                startAutoCycle(); 
+            }
+        }
+
+        function changeSlide() {
+            // Hide current slide
+            slides[currentSlideIndex].classList.remove('active');
+            
+            // Move to the next index, loop back to 0 if at the end
+            currentSlideIndex++;
+            if (currentSlideIndex >= slides.length) { 
+                currentSlideIndex = 0; 
+            }
+            
+            // Show new slide
+            slides[currentSlideIndex].classList.add('active');
+        }
+
+        function startAutoCycle() {
+            slideInterval = setInterval(() => {
+                changeSlide(); // Automatically move forward
+            }, displayDuration);
+        }
+
+        // Fire up the slideshow
+        initSlideshow();
+    </script>
+</body>
+</html>
